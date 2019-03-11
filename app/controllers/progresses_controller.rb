@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProgressesController < ApplicationController
+class ProgressesController < ProtectedController
   before_action :set_progress, only: %i[show update destroy]
 
   # GET /progresses
