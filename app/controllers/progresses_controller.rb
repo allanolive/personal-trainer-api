@@ -5,7 +5,7 @@ class ProgressesController < ProtectedController
 
   # GET /progresses
   def index
-    @progresses = Progress.all
+    @progresses = current_user.progresses.all
 
     render json: @progresses
   end
@@ -17,7 +17,7 @@ class ProgressesController < ProtectedController
 
   # POST /progresses
   def create
-    @progress = Progress.new(progress_params)
+    @progress = current_user.progresses.new(progress_params)
 
     if @progress.save
       render json: @progress, status: :created, location: @progress
@@ -44,7 +44,7 @@ class ProgressesController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_progress
-    @progress = Progress.find(params[:id])
+    @progress = current_user.progresses.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
