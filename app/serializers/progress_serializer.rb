@@ -10,6 +10,7 @@ class ProgressSerializer < ActiveModel::Serializer
     :fat,
     :sugar,
     :fiber,
-    :cardio
+    :cardio,
+    :user_id
   )
 end

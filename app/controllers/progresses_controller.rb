@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class ProgressesController < ProtectedController
+class ProgressesController < OpenReadController
   before_action :set_progress, only: %i[show update destroy]
 
   # GET /progresses
   def index
-    @progresses = current_user.progresses.all
+    @progresses = Progress.all
 
     render json: @progresses
   end
@@ -44,7 +44,7 @@ class ProgressesController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_progress
-    @progress = current_user.progresses.find(params[:id])
+    @progress = Progress.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
