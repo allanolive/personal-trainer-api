@@ -11,6 +11,7 @@ class ProgressSerializer < ActiveModel::Serializer
     :sugar,
     :fiber,
     :cardio,
-    :user_id
+    :user_id,
+    :created_at
   )
 end
